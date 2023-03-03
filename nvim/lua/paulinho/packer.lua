@@ -14,14 +14,6 @@ return require('packer').startup(function(use)
   }
 
   use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
-
-  use({
       "folke/trouble.nvim",
       config = function()
           require("trouble").setup {
@@ -33,6 +25,7 @@ return require('packer').startup(function(use)
       end
   })
 
+  use ( "ellisonleao/gruvbox.nvim" )
 
   use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
   use("nvim-treesitter/playground")
@@ -41,7 +34,35 @@ return require('packer').startup(function(use)
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
   use("nvim-treesitter/nvim-treesitter-context");
+  use("christoomey/vim-tmux-navigator")
+  use("szw/vim-maximizer")
+  use("tpope/vim-surround")
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+  use("kyazdani42/nvim-web-devicons")
 
+  use("nvim-lualine/lualine.nvim")
+
+
+  -- enhanced lsps
+  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+
+  -- formatting & linting
+  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
@@ -70,8 +91,12 @@ return require('packer').startup(function(use)
   use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
   use('neovim/nvim-lspconfig')
-  use('jose-elias-alvarez/null-ls.nvim')
+
 
   use('MunifTanjim/prettier.nvim')
 
+  -- git integration
+  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+  use("justinmk/vim-sneak")
 end)
