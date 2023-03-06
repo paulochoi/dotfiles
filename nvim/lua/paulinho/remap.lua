@@ -2,16 +2,16 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- my custom mappings
-vim.keymap.set("i","jk","<Esc>")
-vim.keymap.set("n","<","<<")
-vim.keymap.set("n",">",">>")
-vim.keymap.set("n","p","pgvy")
-vim.keymap.set("n","<leader>w",":w!<CR>")
-vim.keymap.set("n","U","<C-r>")
-vim.keymap.set("n","L","$")
-vim.keymap.set("n","H","^")
-vim.keymap.set("n","J","<C-d>zt")
-vim.keymap.set("n","K","<C-u>zt")
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "<", "<<")
+vim.keymap.set("n", ">", ">>")
+vim.keymap.set("n", "p", "pgvy")
+vim.keymap.set("n", "<leader>w", ":w!<CR>")
+vim.keymap.set("n", "U", "<C-r>")
+vim.keymap.set("n", "L", "$")
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "J", "<C-d>zz")
+vim.keymap.set("n", "K", "<C-u>zz")
 
 -- window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -24,7 +24,6 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tl", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>th", ":tabp<CR>") --  go to previous tab
 vim.keymap.set("n", "<leader>n", ":noh<CR>")
-
 
 -- plugin keymaps
 -- vim-maximizer
@@ -46,10 +45,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -63,10 +62,9 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>")
+vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end)
-
