@@ -13,6 +13,9 @@ vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "J", "<C-d>zz")
 vim.keymap.set("n", "K", "<C-u>zz")
 
+vim.keymap.set("n", "<leader>cf", ":let @*=expand('%')<cr>")
+vim.keymap.set("n", "<leader>cF", ":let @*=expand('%:t')<cr>")
+
 -- window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
