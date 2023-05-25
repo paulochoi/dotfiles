@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Comment this out if not at work computer
 source $PROVIDER_HOME_DIRECTORY/scripts/dev/.bash_psql
 export DATABASE_URL=postgres://localhost/$CURRENT_DB?sslmode=disable
 export PROVIDER_HOME_DIRECTORY=/Users/paulo.choi/Repos/provider
