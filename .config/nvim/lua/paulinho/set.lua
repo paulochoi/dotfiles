@@ -40,3 +40,16 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+vim.g.settermguicolors = true
+vim.opt.title = true
+vim.opt.titlestring = [[%f %h%m%r%w %{v:progname} (%{tabpagenr()} of %{tabpagenr('$')})]]
+vim.o.background = "dark" -- or "light" for light mode
+vim.o.foldlevel = 20
+vim.o.foldmethod = "expr"
+
+vim.cmd([[let g:gruvbox_material_background = 'soft']])
+vim.cmd([[let g:gruvbox_material_palette = 'material']])
+vim.cmd([[let g:gruvbox_material_better_performance = 1]])
+vim.cmd([[let g:gruvbox_material_transparent_background = 1]])
+vim.cmd([[colorscheme gruvbox-material]])
+

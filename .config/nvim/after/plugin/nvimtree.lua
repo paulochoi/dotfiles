@@ -29,7 +29,6 @@ nvimtree.setup({
 })
 
 -- open nvim-tree on setup
-
 local function open_nvim_tree(data)
 	-- buffer is a [No Name]
 	local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
@@ -51,3 +50,6 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+vim.keymap.set("n", "<leader>rt", ":NvimTreeCollapse<CR>")
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+

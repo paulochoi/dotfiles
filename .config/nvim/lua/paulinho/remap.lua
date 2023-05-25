@@ -12,11 +12,7 @@ vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "J", "10jzz")
 vim.keymap.set("n", "K", "10kzz")
-vim.keymap.set("n", "<leader>rt", ":NvimTreeCollapse<CR>")
-vim.keymap.set("n", "<leader>dv", ":DiffviewOpen<CR>")
 vim.keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>")
-
-vim.keymap.set("n", "<leader>f", ":Prettier<CR>", { desc = "Format with Prettier" })
 
 vim.keymap.set("n", "<leader>vf", "$V%")
 
@@ -39,17 +35,12 @@ vim.keymap.set("n", "<leader>n", ":noh<CR>")
 -- vim-maximizer
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
--- nvim-tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
-
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "qc", ":cclose<CR>")
@@ -72,3 +63,8 @@ vim.keymap.set("n", "<leader>b", ":BlamerToggle<CR>")
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
+
+vim.api.nvim_set_keymap("n", "<leader>cd", ":lua nvim_create_user_command()<CR>", { silent = false })
+-- Set the remapping using nvim_set_keymap
+vim.api.nvim_set_keymap("n", "<leader>qf", ":lua run_vimgrep_accept_pattern()<CR>", { silent = false })
+

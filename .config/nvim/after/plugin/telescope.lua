@@ -30,11 +30,13 @@ telescope.setup({
 			previewer = false,
 			shortern_path = true,
 			layout_strategy = "horizontal",
+      theme = "dropdown",
 		},
 		git_files = {
 			previewer = false,
 			shortern_path = true,
 			layout_strategy = "horizontal",
+      theme = "dropdown",
 		},
 		live_grep = {
 			additional_args = function(opts)
@@ -49,9 +51,13 @@ telescope.setup({
 		buffers = {
 			sort_mru = true,
 			mappings = {
+      theme = "dropdown",
 				i = { ["<c-d>"] = actions.delete_buffer },
 			},
 		},
+    git_worktree = {
+      theme = "dropdown",
+    },
 	},
 })
 

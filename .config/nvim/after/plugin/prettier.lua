@@ -1,3 +1,4 @@
+vim.keymap.set("n", "<leader>f", ":Prettier<CR>", { desc = "Format with Prettier" })
 return {
 	"MunifTanjim/prettier.nvim",
 	config = function()
