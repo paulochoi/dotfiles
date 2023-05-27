@@ -1,5 +1,5 @@
 
-function nvim_create_user_command()
+function nvim_yank_directory()
 	-- Get the project folder path
 	local project_path = vim.fn.getcwd()
 

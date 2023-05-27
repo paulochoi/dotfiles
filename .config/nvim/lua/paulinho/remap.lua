@@ -58,7 +58,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
-vim.api.nvim_set_keymap("n", "<leader>cd", ":lua nvim_create_user_command()<CR>", { silent = false })
+vim.api.nvim_set_keymap("n", "<leader>cd", ":lua nvim_yank_directory()<CR>", { silent = false })
 -- Set the remapping using nvim_set_keymap
 vim.api.nvim_set_keymap("n", "<leader>qf", ":lua run_vimgrep_accept_pattern()<CR>", { silent = false })
 
