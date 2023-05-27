@@ -1,2 +1,5 @@
 .DS_Store
 kitty-themes
+pack
+packer_compiled.lua
+
