@@ -21,10 +21,6 @@ telescope.setup({
     file_ignore_patterns = { 'target/*', 'node_modules/*', '^.git/*', '^.yarn/*' },
 	},
 	pickers = {
-		-- current_buffer_fuzzy_find = {
-		-- 	previewer = true,
-		-- 	layout_strategy = "horizontal",
-		-- },
 		find_files = {
 			find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
 			previewer = false,
@@ -51,7 +47,6 @@ telescope.setup({
 		buffers = {
 			sort_mru = true,
 			mappings = {
-      theme = "dropdown",
 				i = { ["<c-d>"] = actions.delete_buffer },
 			},
 		},
@@ -67,8 +62,10 @@ vim.keymap.set("n", "<leader>ps", function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 vim.keymap.set("n", "<leader>pgb", builtin.git_branches)
-vim.keymap.set("n", "<leader>pgs", builtin.git_status)
 vim.keymap.set("n", "<leader>pb", builtin.buffers, {})
-
+vim.keymap.set("n", "<leader>pm", builtin.keymaps, {})
+vim.keymap.set("n", "<leader>pq", builtin.quickfix, {})
+vim.keymap.set("n", "<leader>pr", builtin.lsp_references, {})
+vim.keymap.set("n", "<leader>pd", builtin.diagnostics, {})
+-- vim.keymap.set("n", "<leader>px", builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set("n", "<leader>pw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
-

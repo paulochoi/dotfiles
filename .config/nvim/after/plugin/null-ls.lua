@@ -1,8 +1,6 @@
 local null_ls = require("null-ls")
 
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
--- local async = event == "BufWritePost"
--- local event = "BufWritePre" -- or "BufWritePost"
 -- for conciseness
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters

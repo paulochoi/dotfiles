@@ -5,9 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source $PROVIDER_HOME_DIRECTORY/scripts/dev/.bash_psql
 export DATABASE_URL=postgres://localhost/$CURRENT_DB?sslmode=disable
 export PROVIDER_HOME_DIRECTORY=/Users/paulo.choi/Repos/provider
+source $PROVIDER_HOME_DIRECTORY/scripts/dev/.bash_psql
 export GOPATH=$PROVIDER_HOME_DIRECTORY/go
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

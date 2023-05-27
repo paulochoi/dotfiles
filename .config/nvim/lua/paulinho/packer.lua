@@ -22,13 +22,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-context")
 	use("christoomey/vim-tmux-navigator")
 	use("szw/vim-maximizer")
-	use("tpope/vim-surround")
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
 	use("kyazdani42/nvim-web-devicons")
 
 	use("nvim-lualine/lualine.nvim")
@@ -106,60 +99,21 @@ return require("packer").startup(function(use)
 		ft = { "markdown" },
 	})
 
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
-
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
 	use({
 		"folke/noice.nvim",
-		config = function()
-			require("noice").setup({
-				opts = {
-					background_colour = "#000000",
-				},
-				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-				},
-				-- you can enable a preset for easier configuration
-				presets = {
-					bottom_search = true, -- use a classic bottom cmdline for search
-					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = false, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false, -- add a border to hover docs and signature help
-				},
-			})
-		end,
 		requires = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
 		},
 	})
 
 	use({
 		"AckslD/nvim-neoclip.lua",
 		requires = {
-			-- you'll need at least one of these
 			{ "nvim-telescope/telescope.nvim" },
-			-- {'ibhagwan/fzf-lua'},
 		},
-		config = function()
-			require("neoclip").setup()
-		end,
 	})
 
 	use("kevinhwang91/nvim-bqf")
@@ -175,6 +129,12 @@ return require("packer").startup(function(use)
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
+		opts = {
+			icons = true,
+			fold_open = "v", -- icon used for open folds
+			fold_closed = ">", -- icon used for closed folds
+		},
 	})
 
+	use("echasnovski/mini.nvim")
 end)
