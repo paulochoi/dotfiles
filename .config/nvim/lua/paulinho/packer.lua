@@ -137,4 +137,5 @@ return require("packer").startup(function(use)
 	})
 
 	use("echasnovski/mini.nvim")
+  use("terrortylor/nvim-comment")
 end)
