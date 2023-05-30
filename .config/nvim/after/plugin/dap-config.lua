@@ -10,7 +10,8 @@
 -- 	"microsoft/vscode-js-debug",
 -- })
 -- 3 - Run the manual steps denoted here: https://github.com/mxsdev/nvim-dap-vscode-js
--- 4 - Copy the out folder ot the mason path for js-debug-adapter
+-- 4 - Copy the out folder out the mason path for js-debug-adapter
+-- 5 - For kitty, install the following font: https://github.com/microsoft/vscode-codicons/blob/main/dist/codicon.ttf
 
 -- # DAP
 local M = {}
