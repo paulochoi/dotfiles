@@ -145,4 +145,7 @@ return require("packer").startup(function(use)
 	use({
 		"microsoft/vscode-js-debug",
 	})
+	use({
+		"rmagatti/goto-preview",
+	})
 end)

@@ -1,7 +1,7 @@
 -- To get this DAP configuration to work for javascript/typescript
 -- Inspiration from: https://github.com/anasrar/.dotfiles/blob/2023/neovim/.config/nvim/lua/rin/DAP/main.lua
 -- 1 - Install 'js-debug-adapter' from mason
--- 2 - Install the following packages
+-- 2 - Install the following plugins
 -- use("mfussenegger/nvim-dap")
 -- use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 -- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
@@ -31,10 +31,10 @@ M.plugin = {
 }
 
 M.setup = function()
-	local  dap = require("dap")
-	local  dapui = require("dapui")
-	local  dap_ext_vscode = require("dap.ext.vscode")
-	local  dap_virtual_text = require("nvim-dap-virtual-text")
+	local dap = require("dap")
+	local dapui = require("dapui")
+	local dap_ext_vscode = require("dap.ext.vscode")
+	local dap_virtual_text = require("nvim-dap-virtual-text")
 
 	-- # Sign
 	vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
@@ -71,7 +71,7 @@ M.setup = function()
 			repl = "r",
 			toggle = "t",
 		},
-		expand_lines = vim.fn.has("nvim-0.7"),
+		expand_lines = true,
 		layouts = {
 			{
 				elements = {
@@ -117,130 +117,139 @@ M.setup = function()
 	--   dapui.close()
 	-- end
 
-	-- # Keymap
-	-- local keymap = require("rin.utils.keymap").keymap
+	local keymap = vim.keymap.set
+	keymap("n", "<Leader>db", dap.toggle_breakpoint)
+	keymap("n", "<Leader>dB", ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
+	keymap("n", "<Leader>dp", ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>')
+	keymap("n", "<Leader>ds", ':lua require("dap").continue()<CR>')
+	keymap("n", "<Leader>dl", ':lua require("dap").run_to_cursor()<CR>')
+	keymap("n", "<Leader>dS", ':lua require("dap").disconnect()<CR>')
+	keymap("n", "<Leader>dn", ':lua require("dap").step_over()<CR>')
+	keymap("n", "<Leader>dN", ':lua require("dap").step_into()<CR>')
+	keymap("n", "<Leader>do", ':lua require("dap").step_out()<CR>')
 
-	-- vim.keymap.set("n", "du", [[:NvimTreeToggle<CR> :lua require'dapui'.toggle()<CR>]])
-	-- -- Press f5 to debug
-	-- vim.keymap.set("n", "<leader>ds", [[:lua require'dap'.continue()<CR>]], {})
-	-- -- Press CTRL + b to toggle regular breakpoint
-	-- vim.keymap.set("n", "<leader>db", [[:lua require'dap'.toggle_breakpoint()<CR>]], {})
-  local keymap = vim.keymap.set
-	keymap("n", "<Leader>di", dap.toggle_breakpoint)
-	keymap("n", "<Leader>dI", ":lua require(\"dap\").set_breakpoint(vim.fn.input(\"Breakpoint condition: \"))<CR>")
-	keymap("n", "<Leader>dp", ":lua require(\"dap\").set_breakpoint(nil, nil, vim.fn.input(\"Log point message: \"))<CR>")
-	keymap("n", "<Leader>ds", ":lua require(\"dap\").continue()<CR>")
-	keymap("n", "<Leader>dl", ":lua require(\"dap\").run_to_cursor()<CR>")
-	keymap("n", "<Leader>dS", ":lua require(\"dap\").disconnect()<CR>")
-	keymap("n", "<Leader>dn", ":lua require(\"dap\").step_over()<CR>")
-	keymap("n", "<Leader>dN", ":lua require(\"dap\").step_into()<CR>")
-	keymap("n", "<Leader>do", ":lua require(\"dap\").step_out()<CR>")
-
-	keymap("n", "<Leader>dww", ":lua require(\"dapui\").toggle()<CR>")
-	keymap("n", "<Leader>dw[", ":lua require(\"dapui\").toggle(1)<CR>")
-	keymap("n", "<Leader>dw]", ":lua require(\"dapui\").toggle(2)<CR>")
+	keymap("n", "<Leader>du", ':lua require("dapui").toggle()<CR>')
+	keymap("n", "<Leader>du[", ':lua require("dapui").toggle(1)<CR>')
+	keymap("n", "<Leader>du]", ':lua require("dapui").toggle(2)<CR>')
 
 	-- # DAP Config
-local dap_utils = require("dap.utils")
-local dap_vscode_js = require("dap-vscode-js")
+	local dap_utils = require("dap.utils")
+	local dap_vscode_js = require("dap-vscode-js")
 
-dap_vscode_js.setup({
-  node_path = "node",
-	debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
-  adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-})
+	dap_vscode_js.setup({
+		node_path = "node",
+		debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
+		adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+	})
 
-local exts = {
-  "javascript",
-  "typescript",
-  "javascriptreact",
-  "typescriptreact",
-  -- using pwa-chrome
-  "vue",
-  "svelte",
-}
+	local exts = {
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		-- using pwa-chrome
+		"vue",
+		"svelte",
+	}
 
-for i, ext in ipairs(exts) do
-  dap.configurations[ext] = {
-    {
-      type = "pwa-node",
-      request = "launch",
-      name = "Launch Current File (pwa-node)",
-      cwd = vim.fn.getcwd(),
-      args = { "${file}" },
-      sourceMaps = true,
-      protocol = "inspector",
-    },
-    {
-      type = "pwa-node",
-      request = "launch",
-      name = "Launch Current File (pwa-node with ts-node)",
-      cwd = vim.fn.getcwd(),
-      runtimeArgs = { "--loader", "ts-node/esm" },
-      runtimeExecutable = "node",
-      args = { "${file}" },
-      sourceMaps = true,
-      protocol = "inspector",
-      skipFiles = { "<node_internals>/**", "node_modules/**" },
-      resolveSourceMapLocations = {
-        "${workspaceFolder}/**",
-        "!**/node_modules/**",
-      },
-    },
-    {
-      type = "pwa-node",
-      request = "launch",
-      name = "Launch Test Current File (pwa-node with jest)",
-      cwd = vim.fn.getcwd(),
-      runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest" },
-      runtimeExecutable = "node",
-      args = { "${file}", "--coverage", "false" },
-      rootPath = "${workspaceFolder}",
-      sourceMaps = true,
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-      skipFiles = { "<node_internals>/**", "node_modules/**" },
-    },
-    {
-      type = "pwa-node",
-      request = "launch",
-      name = "Launch Test Current File (pwa-node with vitest)",
-      cwd = vim.fn.getcwd(),
-      program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
-      args = { "--inspect-brk", "--threads", "false", "run", "${file}" },
-      autoAttachChildProcesses = true,
-      smartStep = true,
-      console = "integratedTerminal",
-      skipFiles = { "<node_internals>/**", "node_modules/**" },
-    },
-    {
-      type = "pwa-chrome",
-      request = "attach",
-      name = "Attach Program (pwa-chrome, select port)",
-      program = "${file}",
-      cwd = vim.fn.getcwd(),
-      sourceMaps = true,
-      port = function()
-        return vim.fn.input("Select port: ", 9222)
-      end,
-      webRoot = "${workspaceFolder}",
-    },
-    {
-      type = "pwa-node",
-      request = "attach",
-      name = "Attach Program (pwa-node, select pid)",
-      cwd = vim.fn.getcwd(),
-      processId = dap_utils.pick_process,
-      skipFiles = { "<node_internals>/**" },
-    },
-  }
-end
+	for i, ext in ipairs(exts) do
+		dap.configurations[ext] = {
+			{
+				type = "pwa-node",
+				request = "launch",
+				name = "Launch Current File (pwa-node)",
+				cwd = vim.fn.getcwd(),
+				args = { "${file}" },
+				sourceMaps = true,
+				protocol = "inspector",
+			},
+			{
+				type = "pwa-node",
+				request = "launch",
+				name = "Launch Current File (pwa-node with ts-node)",
+				cwd = vim.fn.getcwd(),
+				runtimeArgs = { "--loader", "ts-node/esm" },
+				runtimeExecutable = "node",
+				args = { "${file}" },
+				sourceMaps = true,
+				protocol = "inspector",
+				skipFiles = { "<node_internals>/**", "node_modules/**" },
+				resolveSourceMapLocations = {
+					"${workspaceFolder}/**",
+					"!**/node_modules/**",
+				},
+			},
+			{
+				type = "pwa-node",
+				request = "launch",
+				name = "Launch Test Current File (pwa-node with jest)",
+				cwd = vim.fn.getcwd(),
+				runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest" },
+				runtimeExecutable = "node",
+				args = { "${file}", "--coverage", "false" },
+				rootPath = "${workspaceFolder}",
+				sourceMaps = true,
+				console = "integratedTerminal",
+				internalConsoleOptions = "neverOpen",
+				skipFiles = { "<node_internals>/**", "node_modules/**" },
+			},
+			{
+				type = "pwa-node",
+				request = "launch",
+				name = "Debug Mocha Tests",
+				cwd = vim.fn.getcwd(),
+				-- trace = true, -- include debugger info
+				runtimeExecutable = "node",
+				runtimeArgs = {
+					"./node_modules/mocha/bin/mocha.js",
+				},
+				rootPath = "${workspaceFolder}",
+				sourceMaps = true,
+				cwd = "${workspaceFolder}",
+				console = "integratedTerminal",
+				internalConsoleOptions = "neverOpen",
+				skipFiles = { "<node_internals>/**", "node_modules/**" },
+			},
+			{
+				type = "pwa-node",
+				request = "launch",
+				name = "Launch Test Current File (pwa-node with vitest)",
+				cwd = vim.fn.getcwd(),
+				program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+				args = { "--inspect-brk", "--threads", "false", "run", "${file}" },
+				autoAttachChildProcesses = true,
+				smartStep = true,
+				console = "integratedTerminal",
+				skipFiles = { "<node_internals>/**", "node_modules/**" },
+			},
+			{
+				type = "pwa-chrome",
+				request = "attach",
+				name = "Attach Program (pwa-chrome, select port)",
+				program = "${file}",
+				cwd = vim.fn.getcwd(),
+				sourceMaps = true,
+				port = function()
+					return vim.fn.input("Select port: ", 9222)
+				end,
+				webRoot = "${workspaceFolder}",
+			},
+			{
+				type = "pwa-node",
+				request = "attach",
+				name = "Attach Program (pwa-node, select pid)",
+				cwd = vim.fn.getcwd(),
+				processId = dap_utils.pick_process,
+				skipFiles = { "<node_internals>/**" },
+			},
+		}
+	end
 
 	-- ## DAP `launch.json`
 	dap_ext_vscode.load_launchjs(nil, {
-		["python"] = {
-			"python",
-		},
+		-- ["python"] = {
+		-- 	"python",
+		-- },
 		["pwa-node"] = {
 			"javascript",
 			"typescript",
@@ -249,13 +258,13 @@ end
 			"javascript",
 			"typescript",
 		},
-		["cppdbg"] = {
-			"c",
-			"cpp",
-		},
-		["dlv"] = {
-			"go",
-		},
+		-- ["cppdbg"] = {
+		-- 	"c",
+		-- 	"cpp",
+		-- },
+		-- ["dlv"] = {
+		-- 	"go",
+		-- },
 	})
 end
 
