@@ -4,13 +4,13 @@ require("mini.pairs").setup()
 require("mini.surround").setup({
 	-- Module mappings. Use `''` (empty string) to disable one.
 	mappings = {
-		add = "Sa", -- Add surrounding in Normal and Visual modes
-		delete = "Sd", -- Delete surrounding
-		find = "Sf", -- Find surrounding (to the right)
-		find_left = "SF", -- Find surrounding (to the left)
-		highlight = "Sh", -- Highlight surrounding
-		replace = "Sr", -- Replace surrounding
-		update_n_lines = "Sn", -- Update `n_lines`
+		add = "ta", -- Add surrounding in Normal and Visual modes
+		delete = "td", -- Delete surrounding
+		find = "tf", -- Find surrounding (to the right)
+		find_left = "tF", -- Find surrounding (to the left)
+		highlight = "th", -- Highlight surrounding
+		replace = "tr", -- Replace surrounding
+		update_n_lines = "tn", -- Update `n_lines`
 
 		suffix_last = "l", -- Suffix to search with "prev" method
 		suffix_next = "n", -- Suffix to search with "next" method

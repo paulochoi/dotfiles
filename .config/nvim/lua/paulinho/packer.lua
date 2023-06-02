@@ -148,4 +148,6 @@ return require("packer").startup(function(use)
 	use({
 		"rmagatti/goto-preview",
 	})
+
+	use({ "Asheq/close-buffers.vim" })
 end)

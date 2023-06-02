@@ -6,6 +6,7 @@ vim.keymap.set("i", "<Esc><BS>", "<C-w>")
 vim.keymap.set("n", "<", "<<")
 vim.keymap.set("n", ">", ">>")
 vim.keymap.set("v", "p", "P")
+vim.keymap.set("v", "y", "ygv<Esc>")
 vim.keymap.set("n", "<leader>w", ":w!<CR>")
 vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "L", "$")
@@ -13,6 +14,9 @@ vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "J", "10jzz")
 vim.keymap.set("n", "K", "10kzz")
 vim.keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>")
+vim.keymap.set("n", "<cr>", "ciw")
+vim.keymap.set("n", "<BS>", ":b#<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cb", "%bd | e#<CR>")
 
 vim.keymap.set("n", "<leader>vf", "$V%")
 
@@ -25,10 +29,6 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-vim.keymap.set("n", "<leader>tl", ":tabn<CR>") --  go to next tab
-vim.keymap.set("n", "<leader>th", ":tabp<CR>") --  go to previous tab
 vim.keymap.set("n", "<leader>n", ":noh<CR>")
 
 -- plugin keymaps
@@ -61,4 +61,3 @@ end)
 vim.api.nvim_set_keymap("n", "<leader>cd", ":lua nvim_yank_directory()<CR>", { silent = false })
 -- Set the remapping using nvim_set_keymap
 vim.api.nvim_set_keymap("n", "<leader>qf", ":lua run_vimgrep_accept_pattern()<CR>", { silent = false })
-
