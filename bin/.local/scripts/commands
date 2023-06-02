@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Path to the commands file
+COMMANDS_FILE="$HOME/configs/commands.txt"
+
+# Read the commands from the file into an array
+commands=()
+while IFS= read -r line; do
+  commands+=("$line")
+done < "$COMMANDS_FILE"
+
+# Use fzf to select a command
+selected_command=$(printf '%s\n' "${commands[@]}" | fzf)
+
+# Extract the portion after the first ': '
+command_to_copy=$(echo "$selected_command" | awk -F': ' '{print substr($0, index($0,$2))}')
+
+# Copy the selected command to the clipboard
+echo "$command_to_copy" | pbcopy
+
+echo "Selected command copied to clipboard: $selected_command"
