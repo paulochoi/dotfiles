@@ -31,6 +31,11 @@ vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 vim.keymap.set("n", "<leader>n", ":noh<CR>")
 
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
+vim.keymap.set("n", "<leader>tl", ":tabn<CR>") --  go to next tab
+vim.keymap.set("n", "<leader>th", ":tabp<CR>") --  go to previous tab
+
 -- plugin keymaps
 -- vim-maximizer
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
