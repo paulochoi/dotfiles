@@ -81,9 +81,6 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
-	-- Blamer
-	use("APZelos/blamer.nvim")
-
 	-- Gruvbox
 	use("sainnhe/gruvbox-material")
 
@@ -150,4 +147,8 @@ return require("packer").startup(function(use)
 	})
 
 	use({ "Asheq/close-buffers.vim" })
+
+	use({
+		"goolord/alpha-nvim",
+	})
 end)

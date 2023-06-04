@@ -4,19 +4,9 @@ if not setup then
 	return
 end
 
--- recommended settings from nvim-tree documentation
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- configure nvim-tree
 nvimtree.setup({
-	actions = {
-		open_file = {
-			window_picker = {
-				enable = false,
-			},
-		},
-	},
 	git = {
 		ignore = false,
 	},
@@ -49,7 +39,7 @@ local function open_nvim_tree(data)
 	require("nvim-tree.api").tree.open()
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 vim.keymap.set("n", "<leader>rt", ":NvimTreeCollapse<CR>")
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
