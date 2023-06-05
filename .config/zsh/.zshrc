@@ -23,6 +23,3 @@ if [[ -f /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh ]]; then
 elif [[ -f /usr/local/share/zsh-abbr/zsh-abbr.zsh ]]; then
     source /usr/local/share/zsh-abbr/zsh-abbr.zsh
 fi
-# depending on your env this may differ
-# source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
-# source /usr/local/share/zsh-abbr/zsh-abbr.zsh
