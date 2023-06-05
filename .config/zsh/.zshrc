@@ -9,6 +9,7 @@ eval "$(zoxide init bash)"
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(zsh-fzf-history-search)
 
+export XDG_CONFIG_HOME="$HOME/.config"
 source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
