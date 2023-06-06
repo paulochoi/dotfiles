@@ -56,5 +56,3 @@ vim.cmd([[let g:gruvbox_material_menu_selection_background = 'blue']])
 
 vim.cmd([[colorscheme gruvbox-material]])
 
-vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
-vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])

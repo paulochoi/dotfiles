@@ -1,5 +1,1 @@
-git: 
-    paging:
-        colorArg: always
-        pager: delta --dark --paging=never --syntax-theme base16-256 --diff-so-fancy (or -s for split)
-
+../../Library/Application Support/lazygit/config.yml
