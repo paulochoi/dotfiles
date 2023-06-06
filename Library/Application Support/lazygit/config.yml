@@ -1,3 +1,8 @@
+os:
+  edit: 'nv {{filename}}'
+  editAtLine: 'nv --line={{line}} {{filename}}'
+  editAtLineAndWait: 'nv --block --line={{line}} {{filename}}'
+  editInTerminal: true
 gui:
   showIcons: true
   # use the mocha catppuccin theme
@@ -23,4 +28,4 @@ gui:
 git: 
     paging:
         colorArg: always
-        pager: delta --dark --paging=never --syntax-theme base16-256 -s
+        pager: delta --dark --paging=never -s
