@@ -7,7 +7,7 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	use({ "github/copilot.vim", event = "VimEnter"})
+	use({ "github/copilot.vim", event = "VimEnter" })
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -153,6 +153,33 @@ return require("packer").startup(function(use)
 		"goolord/alpha-nvim",
 		config = function()
 			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	})
+
+	use({
+		"ruifm/gitlinker.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+
+	use({
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	})
+
+	use({ "xiyaowong/transparent.nvim" })
+
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
 		end,
 	})
 end)
