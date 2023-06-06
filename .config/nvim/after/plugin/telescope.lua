@@ -7,18 +7,18 @@ require("telescope").load_extension("git_worktree")
 telescope.setup({
 	defaults = {
 		layout_config = {
-        horizontal = {
-          prompt_position = 'top',
-          preview_width = 0.55,
-        },
-        vertical = {
-          mirror = false,
-        },
-        width = 0.85,
-        height = 0.80,
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+			},
+			vertical = {
+				mirror = false,
+			},
+			width = 0.85,
+			height = 0.80,
 		},
 		sorting_strategy = "ascending",
-    file_ignore_patterns = { 'target/*', 'node_modules/*', '^.git/*', '^.yarn/*' },
+		file_ignore_patterns = { "target/*", "node_modules/*", "^.git/*", "^.yarn/*" },
 	},
 	pickers = {
 		find_files = {
@@ -26,13 +26,13 @@ telescope.setup({
 			previewer = false,
 			shortern_path = true,
 			layout_strategy = "horizontal",
-      theme = "dropdown",
+			theme = "dropdown",
 		},
 		git_files = {
 			previewer = false,
 			shortern_path = true,
 			layout_strategy = "horizontal",
-      theme = "dropdown",
+			theme = "dropdown",
 		},
 		live_grep = {
 			additional_args = function(opts)
@@ -50,9 +50,9 @@ telescope.setup({
 				i = { ["<c-d>"] = actions.delete_buffer },
 			},
 		},
-    git_worktree = {
-      theme = "dropdown",
-    },
+		git_worktree = {
+			theme = "dropdown",
+		},
 	},
 })
 
@@ -67,6 +67,10 @@ vim.keymap.set("n", "<leader>pm", builtin.keymaps, {})
 vim.keymap.set("n", "<leader>pq", builtin.quickfix, {})
 vim.keymap.set("n", "<leader>pr", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>pd", builtin.diagnostics, {})
-vim.keymap.set("n", "<leader>px", ':lua require("telescope.builtin").live_grep({search_dirs={vim.fn.expand("%:p")}})<CR>' )
+vim.keymap.set(
+	"n",
+	"<leader>px",
+	':lua require("telescope.builtin").live_grep({search_dirs={vim.fn.expand("%:p")}})<CR>'
+)
 vim.keymap.set("n", "<leader>pw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
 vim.keymap.set("n", "\\", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
