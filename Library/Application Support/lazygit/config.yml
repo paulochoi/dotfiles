@@ -1,7 +1,7 @@
 os:
-  edit: 'nv {{filename}}'
-  editAtLine: 'nv --line={{line}} {{filename}}'
-  editAtLineAndWait: 'nv --block --line={{line}} {{filename}}'
+  edit: 'nvim {{filename}}'
+  editAtLine: 'nvi --line={{line}} {{filename}}'
+  editAtLineAndWait: 'nvim --block --line={{line}} {{filename}}'
   editInTerminal: true
 gui:
   showIcons: true
