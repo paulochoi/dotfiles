@@ -20,6 +20,13 @@ telescope.setup({
 		sorting_strategy = "ascending",
 		file_ignore_patterns = { "target/*", "node_modules/*", "^.git/*", "^.yarn/*" },
 	},
+	extensions = {
+		emoji = {
+			action = function(emoji)
+				vim.fn.setreg("*", emoji.value)
+			end,
+		},
+	},
 	pickers = {
 		find_files = {
 			find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
@@ -74,3 +81,5 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>pw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
 vim.keymap.set("n", "\\", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
+vim.keymap.set("n", "<leader>pe", ":lua require('telescope').extensions.emoji.emoji()<CR>")
+

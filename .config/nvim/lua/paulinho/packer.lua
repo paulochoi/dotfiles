@@ -182,4 +182,6 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
+  use({"xiyaowong/telescope-emoji.nvim", requires = {"nvim-telescope/telescope.nvim"}})
 end)
