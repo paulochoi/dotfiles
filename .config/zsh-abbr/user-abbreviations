@@ -34,4 +34,7 @@ abbr "yu"="yarn ui"
 abbr "yw"="yarn web"
 abbr "za"="zoxide add"
 abbr "ze"="zoxide edit"
-
+abbr "ygev"="yarn generate-event-schema"
+abbr "yrt"="yarn run test"
+abbr "yrd"="yarn run dev"
+abbr "ygm"="yarn run migration:generate"
