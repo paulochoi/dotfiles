@@ -76,9 +76,7 @@ M.setup = function()
 			{
 				elements = {
 					-- Elements can be strings or table with id and size keys.
-					{ id = "scopes", size = 0.25 },
 					"breakpoints",
-					"stacks",
 					"watches",
 				},
 				size = 40,
@@ -197,8 +195,13 @@ M.setup = function()
 				cwd = vim.fn.getcwd(),
 				runtimeArgs = { "jest" },
 				runtimeExecutable = "npx",
-				args = { "${file}", "--coverage", "false" },
+				args = function()
+					local argument_string = vim.fn.input("Test name: ")
+					local pattern = { "${file}", "-t", argument_string, "--coverage", "false" }
+          return pattern
+				end,
 				rootPath = "${workspaceFolder}",
+        -- args = { "${file}", "--coverage", "false" },
 				sourceMaps = true,
 				console = "integratedTerminal",
 				internalConsoleOptions = "neverOpen",
