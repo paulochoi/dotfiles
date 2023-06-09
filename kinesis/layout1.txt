@@ -7,13 +7,13 @@
 [bspc]>[spc]
 [del]>[lctr]
 [spc]>[bspc]
-[pgdn]>[fn1s]
 {caps}>{s9}{x1}{-lctr}{a}{+lctr}
 {hk3}>{s9}{x1}{-lshf}{-lwin}{a}{+lshf}{+lwin}
 {rwin}>{s9}{x1}{-lwin}{spc}{+lwin}
 {hk2}>{s9}{x1}{-lalt}{h}{+lalt}
 {hk4}>{s9}{x1}{-lalt}{l}{+lalt}
 {pgup}>{s9}{x1}{-lalt}{bspc}{+lalt}
+{pgdn}>{s9}{x1}{-lctr}{a}{+lctr}
 <keypad>
 <function1>
 [w]>[obrk]
