@@ -8,5 +8,8 @@ require("noice").setup({
   },
   popupmenu = {
     enabled = false
+  },
+  hover = {
+    enabled = false
   }
 })
