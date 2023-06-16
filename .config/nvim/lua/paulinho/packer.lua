@@ -156,11 +156,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"ruifm/gitlinker.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
-
 	use({ "xiyaowong/transparent.nvim" })
 
 	use({
@@ -176,7 +171,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-  use("ThePrimeagen/vim-be-good")
+	use("ThePrimeagen/vim-be-good")
 
-  use({"xiyaowong/telescope-emoji.nvim", requires = {"nvim-telescope/telescope.nvim"}})
+	use({ "xiyaowong/telescope-emoji.nvim", requires = { "nvim-telescope/telescope.nvim" } })
+	use("f-person/git-blame.nvim")
 end)

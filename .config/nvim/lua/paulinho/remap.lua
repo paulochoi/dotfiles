@@ -20,9 +20,6 @@ vim.keymap.set("n", "<leader>cb", "%bd | e#<CR>")
 
 vim.keymap.set("n", "<leader>vf", "$V%")
 
-vim.keymap.set("n", "<leader>cf", ":let @*=expand('%')<cr>")
-vim.keymap.set("n", "<leader>cF", ":let @*=expand('%:t')<cr>")
-
 -- window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
@@ -57,7 +54,9 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 vim.keymap.set("n", "<leader>cr", "<cmd>lua ReloadConfig()<CR>")
-vim.keymap.set("n", "<leader>b", ":Gitsigns blame_line<CR>")
+vim.keymap.set("n", "<leader>b", ":GitBlameToggle<CR>")
+vim.keymap.set("n", "<leader>bo", ":GitBlameOpenCommitURL<CR>")
+vim.keymap.set("n", "<leader>gf", ":GitBlameOpenFileURL<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")

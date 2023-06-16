@@ -12,4 +12,5 @@ vim.g.transparent_enabled = true
 
 vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
+vim.g.gitblame_enabled = 0
 require'alpha'.setup(require'alpha.themes.startify'.config)
