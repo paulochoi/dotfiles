@@ -17,6 +17,16 @@ telescope.setup({
 			width = 0.85,
 			height = 0.80,
 		},
+		mappings = {
+			i = {
+				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+				["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+			},
+			n = {
+				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+				["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+			},
+		},
 		sorting_strategy = "ascending",
 		file_ignore_patterns = { "target/*", "node_modules/*", "^.git/*", "^.yarn/*" },
 	},
@@ -74,12 +84,12 @@ vim.keymap.set("n", "<leader>pm", builtin.keymaps, {})
 vim.keymap.set("n", "<leader>pq", builtin.quickfix, {})
 vim.keymap.set("n", "<leader>pr", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>pd", builtin.diagnostics, {})
-vim.keymap.set(
-	"n",
-	"<leader>px",
-	':lua require("telescope.builtin").live_grep({search_dirs={vim.fn.expand("%:p")}})<CR>'
-)
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>px",
+-- 	':lua require("telescope.builtin").live_grep({search_dirs={vim.fn.expand("%:p")}})<CR>'
+-- )
 vim.keymap.set("n", "<leader>pw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
 vim.keymap.set("n", "\\", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
 vim.keymap.set("n", "<leader>pe", ":lua require('telescope').extensions.emoji.emoji()<CR>")
-
+vim.keymap.set("n", "<leader>px", builtin.current_buffer_fuzzy_find, {})
