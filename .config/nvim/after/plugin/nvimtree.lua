@@ -18,6 +18,11 @@ nvimtree.setup({
 					cb = ":lua grep_at_current_tree_node()<CR>",
 					mode = "n",
 				},
+				{
+					key = { "<C-p>", "<C-p>" },
+					cb = ":lua find_file_at_current_tree_node()<CR>",
+					mode = "n",
+				},
 			},
 		},
 	},
@@ -35,6 +40,14 @@ function grep_at_current_tree_node()
 	require("telescope.builtin").live_grep({ search_dirs = { node.absolute_path } })
 end
 
+
+function find_file_at_current_tree_node()
+	local node = require("nvim-tree.lib").get_node_at_cursor()
+	if not node then
+		return
+	end
+	require("telescope.builtin").find_files({ search_dirs = { node.absolute_path } })
+end
 
 -- open nvim-tree on setup
 local function open_nvim_tree(data)
