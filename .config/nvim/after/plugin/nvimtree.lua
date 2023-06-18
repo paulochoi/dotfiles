@@ -4,7 +4,6 @@ if not setup then
 	return
 end
 
-
 -- configure nvim-tree
 nvimtree.setup({
 	git = {
@@ -12,11 +11,30 @@ nvimtree.setup({
 	},
 	view = {
 		side = "right",
+		mappings = {
+			list = {
+				{
+					key = { "<C-f>", "<C-f>" },
+					cb = ":lua grep_at_current_tree_node()<CR>",
+					mode = "n",
+				},
+			},
+		},
 	},
 	update_focused_file = {
 		enable = true,
 	},
 })
+
+-- allows to run telescope on the current directory
+function grep_at_current_tree_node()
+	local node = require("nvim-tree.lib").get_node_at_cursor()
+	if not node then
+		return
+	end
+	require("telescope.builtin").live_grep({ search_dirs = { node.absolute_path } })
+end
+
 
 -- open nvim-tree on setup
 local function open_nvim_tree(data)
@@ -42,4 +60,3 @@ end
 -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 vim.keymap.set("n", "<leader>rt", ":NvimTreeCollapse<CR>")
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-

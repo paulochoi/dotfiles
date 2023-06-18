@@ -175,4 +175,5 @@ return require("packer").startup(function(use)
 
 	use({ "xiyaowong/telescope-emoji.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 	use("f-person/git-blame.nvim")
+	use("mg979/vim-visual-multi")
 end)
