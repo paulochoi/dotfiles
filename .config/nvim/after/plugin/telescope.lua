@@ -24,6 +24,7 @@ telescope.setup({
 				["<M-BS>"] = function()
 					vim.api.nvim_input("<C-w>")
 				end,
+        ["<C-h>"] = "which_key"
 			},
 			n = {
 				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
