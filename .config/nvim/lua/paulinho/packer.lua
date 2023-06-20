@@ -76,7 +76,7 @@ return require("packer").startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-	use("justinmk/vim-sneak")
+	use("ggandor/leap.nvim")
 
 	-- This file can be loaded by calling `lua require('plugins')` from your init.vim
 	use("nvim-lua/plenary.nvim")
