@@ -9,7 +9,7 @@ return {
     keys[#keys + 1] = { "<leader>cF", false }
 
     keys[#keys + 1] = { "gh", "<cmd>lua vim.lsp.buf.hover()<cr>" }
-    keys[#keys + 1] = { "<leader>vd", "<cmd>lua vim.lsp.buf.open_float()<cr>" }
+    keys[#keys + 1] = { "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>" }
     -- keys[#keys + 1] = { "<leader>vws", vim.lsp.buf.workspace_symbol()}
     keys[#keys + 1] = { "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>" }
     keys[#keys + 1] = { "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>" }

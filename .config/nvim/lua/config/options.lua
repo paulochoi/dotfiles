@@ -27,7 +27,6 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -45,17 +44,16 @@ vim.opt.splitbelow = true
 vim.g.settermguicolors = true
 vim.opt.title = true
 vim.opt.titlestring = [[%f %h%m%r%w %{v:progname} (%{tabpagenr()} of %{tabpagenr('$')})]]
-vim.o.background = "dark" -- or "light" for light mode
 vim.o.foldlevel = 20
 vim.o.foldmethod = "expr"
 vim.opt.cursorline = false
 
-vim.cmd([[let g:gruvbox_material_background = 'medium']])
-vim.cmd([[let g:gruvbox_material_palette = 'material']])
-vim.cmd([[let g:gruvbox_material_better_performance = 1]])
-vim.cmd([[let g:gruvbox_material_transparent_background = 1]])
-vim.cmd([[let g:gruvbox_material_visual = 'blue background']])
-vim.cmd([[let g:gruvbox_material_menu_selection_background = 'blue']])
+-- vim.cmd([[let g:gruvbox_material_background = 'medium']])
+-- vim.cmd([[let g:gruvbox_material_palette = 'material']])
+-- vim.cmd([[let g:gruvbox_material_better_performance = 1]])
+-- vim.cmd([[let g:gruvbox_material_transparent_background = 1]])
+-- vim.cmd([[let g:gruvbox_material_visual = 'blue background']])
+-- vim.cmd([[let g:gruvbox_material_menu_selection_background = 'blue']])
 
 -- for nvim-ufo
 vim.o.foldcolumn = "0" -- '0' is not bad

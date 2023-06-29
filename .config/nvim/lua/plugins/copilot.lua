@@ -8,7 +8,7 @@ return {
   opts = {
     suggestion = {
       enabled = true,
-      auto_trigger = false,
+      auto_trigger = true,
       accept_line = false,
       accept_word = false,
     },

@@ -37,7 +37,7 @@ return {
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<C-x>"] = cmp.mapping.abort(),
         ["<C-Space>"] = cmp.mapping.complete(),
-        -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<S-CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
@@ -46,7 +46,7 @@ return {
           if cmp.visible() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             -- cmp.select_next_item()
-            cmp.confirm({ select = true })
+            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- this way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then

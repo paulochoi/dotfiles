@@ -17,6 +17,8 @@ return {
     return {
       { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>pb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
+      { "<leader>pd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
+      { "<leader>pD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
       { "<leader>pgf", "<cmd>Telescope git_files<cr>", desc = "Find Git Files" },
       { "<leader>pk", "<cmd>Telescope keymaps<cr>", desc = "Find Key Maps" },
       { "<leader>pm", "<cmd>Telescope marks<cr>", desc = "Find Marks" },
@@ -33,7 +35,7 @@ return {
         desc = "Find Files",
       },
       {
-        "<leader>pds",
+        "<leader>pS",
         function()
           builtin.grep_string({ search = vim.fn.input("Grep > "), cwd = false })
         end,
