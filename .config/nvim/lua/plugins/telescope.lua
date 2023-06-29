@@ -23,7 +23,8 @@ return {
       { "<leader>pq", "<cmd>Telescope quickfix<cr>", desc = "Find in Quickfix" },
       { "<leader>pr", "<cmd>Telescope lsp_references<cr>", desc = "Find LSP References" },
       { "<leader>px", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find In Current Buffer" },
-      -- todo add emoji
+      { "<leader>pe", "<cmd>:lua require('telescope').extensions.emoji.emoji()<cr>", desc = "Find In Current Buffer" },
+      { "<leader>prf", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       {
         "<leader>ps",
         function()
