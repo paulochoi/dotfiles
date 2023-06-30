@@ -16,6 +16,7 @@ return {
   keys = function()
     return {
       { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>p:", "<cmd>Telescope command_history<cr>", desc = "Find Files" },
       { "<leader>pb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
       { "<leader>pd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
       { "<leader>pD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
@@ -24,6 +25,7 @@ return {
       { "<leader>pm", "<cmd>Telescope marks<cr>", desc = "Find Marks" },
       { "<leader>pq", "<cmd>Telescope quickfix<cr>", desc = "Find in Quickfix" },
       { "<leader>pr", "<cmd>Telescope lsp_references<cr>", desc = "Find LSP References" },
+      { "<tab>", "<cmd>Telescope resume<cr>", desc = "Find LSP References" },
       { "<leader>px", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find In Current Buffer" },
       { "<leader>pe", "<cmd>:lua require('telescope').extensions.emoji.emoji()<cr>", desc = "Find In Current Buffer" },
       { "<leader>prf", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
