@@ -15,10 +15,7 @@ return {
         transparent_background = false,
         -- configurations
         integrations = {
-          nvimtree = {
-            enabled = true,
-            transparent_panel = false,
-          },
+          nvimtree = true,
         },
       })
     end,

@@ -82,10 +82,17 @@ return {
         find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
         previewer = false,
         shortern_path = true,
+        theme = "dropdown",
+      },
+      oldfiles = {
+        previewer = false,
+        shortern_path = true,
+        theme = "dropdown",
       },
       git_files = {
         previewer = false,
         shortern_path = true,
+        theme = "dropdown",
       },
       live_grep = {
         additional_args = function()
@@ -102,6 +109,7 @@ return {
         mappings = {
           i = { ["<c-d>"] = actions.delete_buffer },
         },
+        theme = "dropdown",
       },
     },
   },

@@ -1,4 +1,7 @@
 -- LSP keymaps
+local format = function()
+  require("lazyvim.plugins.lsp.format").format({ force = true })
+end
 return {
   "neovim/nvim-lspconfig",
   init = function()
@@ -14,7 +17,6 @@ return {
     keys[#keys + 1] = { "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>" }
     keys[#keys + 1] = { "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>" }
     keys[#keys + 1] = { "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>" }
-    keys[#keys + 1] = { "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>" }
-    --
+    keys[#keys + 1] = { "<leader>f", format, "Formats buffer" }
   end,
 }

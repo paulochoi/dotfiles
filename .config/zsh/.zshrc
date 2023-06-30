@@ -1,4 +1,4 @@
-alias nv=~/Downloads/nvim-macos/bin/nvim
+alias nv=/usr/local/bin/nvim
 eval "$(starship init zsh)"
 export NVM_DIR=/Users/paulo.choi/.config/nvm
 
