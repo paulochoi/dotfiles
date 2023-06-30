@@ -16,6 +16,7 @@ return {
         -- configurations
         integrations = {
           nvimtree = true,
+          harpoon = true,
         },
       })
     end,
