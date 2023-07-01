@@ -15,8 +15,22 @@ return {
     keys[#keys + 1] = { "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>" }
     -- keys[#keys + 1] = { "<leader>vws", vim.lsp.buf.workspace_symbol()}
     keys[#keys + 1] = { "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>" }
-    keys[#keys + 1] = { "<leader>vrr", "<cmd>lua vim.lsp.buf.references()<cr>" }
-    keys[#keys + 1] = { "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>" }
+    keys[#keys + 1] = {
+      "<leader>cA",
+      function()
+        vim.lsp.buf.code_action({
+          context = {
+            only = {
+              "source",
+            },
+            diagnostics = {},
+          },
+        })
+      end,
+      desc = "Source Action",
+      has = "codeAction",
+    }
+    keys[#keys + 1] = { "<leader>vcr", "<cmd>lua vim.lsp.buf.rename()<cr>" }
     keys[#keys + 1] = { "<leader>f", format, "Formats buffer" }
   end,
 }
