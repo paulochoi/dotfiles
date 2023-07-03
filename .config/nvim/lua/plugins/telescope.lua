@@ -29,6 +29,7 @@ return {
       { "<leader>px", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find In Current Buffer" },
       { "<leader>pe", "<cmd>:lua require('telescope').extensions.emoji.emoji()<cr>", desc = "Find In Current Buffer" },
       { "<leader>prf", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      { "<leader>pgs", "<cmd>Telescope git_status<CR>", desc = "status" },
       {
         "<leader>ps",
         function()
@@ -107,7 +108,6 @@ return {
         end,
       },
       buffers = {
-        sort_mru = true,
         mappings = {
           i = { ["<c-d>"] = actions.delete_buffer },
         },
