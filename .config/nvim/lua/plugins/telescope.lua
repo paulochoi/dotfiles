@@ -25,7 +25,7 @@ return {
       { "<leader>pm", "<cmd>Telescope marks<cr>", desc = "Find Marks" },
       { "<leader>pq", "<cmd>Telescope quickfix<cr>", desc = "Find in Quickfix" },
       { "<leader>pr", "<cmd>Telescope lsp_references<cr>", desc = "Find LSP References" },
-      { "<tab>", "<cmd>Telescope resume<cr>", desc = "Find LSP References" },
+      { "\\", "<cmd>Telescope resume<cr>", desc = "Resume telescope" },
       { "<leader>px", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find In Current Buffer" },
       { "<leader>pe", "<cmd>:lua require('telescope').extensions.emoji.emoji()<cr>", desc = "Find In Current Buffer" },
       { "<leader>prf", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
@@ -81,6 +81,13 @@ return {
       current_buffer_fuzzy_find = {
         previewer = true,
       },
+      command_history = {
+        sorting_strategy = "descending",
+        previewer = false,
+        layout_config = {
+          prompt_position = "top", -- search bar at the top
+        },
+      },
       find_files = {
         find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
         previewer = false,
@@ -111,7 +118,6 @@ return {
         mappings = {
           i = { ["<c-d>"] = actions.delete_buffer },
         },
-        theme = "dropdown",
       },
     },
   },

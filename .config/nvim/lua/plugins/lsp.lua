@@ -1,9 +1,12 @@
 -- LSP keymaps
--- local format = function()
---   require("lazyvim.plugins.lsp.format").format({ force = true })
--- end
+local format = function()
+  require("lazyvim.plugins.lsp.format").format({ force = true })
+end
 return {
   "neovim/nvim-lspconfig",
+  opts = {
+    autoformat = false,
+  },
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
     -- disable a keymap
@@ -31,6 +34,6 @@ return {
       has = "codeAction",
     }
     keys[#keys + 1] = { "<leader>vcr", "<cmd>lua vim.lsp.buf.rename()<cr>" }
-    -- keys[#keys + 1] = { "<leader>f", format, "Formats buffer" }
+    keys[#keys + 1] = { "<leader>lf", format, "Formats buffer" }
   end,
 }
