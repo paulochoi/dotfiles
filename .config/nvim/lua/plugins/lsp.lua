@@ -5,7 +5,8 @@ end
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    autoformat = false,
+    autoformat = true,
+    format_notify = false,
   },
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
@@ -34,6 +35,6 @@ return {
       has = "codeAction",
     }
     keys[#keys + 1] = { "<leader>vcr", "<cmd>lua vim.lsp.buf.rename()<cr>" }
-    keys[#keys + 1] = { "<leader>lf", format, "Formats buffer" }
+    keys[#keys + 1] = { "<leader>f", format, "Formats buffer" }
   end,
 }
