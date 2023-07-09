@@ -2,6 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
+cask "macvim"
+
 brew "npm"
 brew "zoxide"
 brew "fd"
@@ -18,3 +20,4 @@ brew "gum"
 brew "htop"
 brew "lf"
 brew "fsouza/prettierd/prettierd"
+brew "zsh-vi-mode"

@@ -5,9 +5,28 @@
       {
         "language": [
           "typescript",
-          "javascript"
+          "javascript",
+          "javascriptreact"
         ],
         "path": "./javascript/custom.json"
+      },
+      {
+        "language": [
+          "markdown"
+        ],
+        "path": "./markdown/custom.json"
+      },
+      {
+        "language": [
+          "sql"
+        ],
+        "path": "./sql/custom.json"
+      },
+      {
+        "language": [
+          "all"
+        ],
+        "path": "./global/custom.json"
       }
     ]
   }

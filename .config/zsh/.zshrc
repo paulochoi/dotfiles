@@ -23,6 +23,14 @@ plugins=(zsh-fzf-history-search git zsh-autosuggestions zsh-syntax-highlighting 
 
 source $ZSH/oh-my-zsh.sh
 
+
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+}
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 if [[ -f /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh ]]; then
     source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 elif [[ -f /usr/local/share/zsh-abbr/zsh-abbr.zsh ]]; then

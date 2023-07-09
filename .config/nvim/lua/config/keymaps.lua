@@ -54,6 +54,8 @@ vim.keymap.set("n", "qc", ":cclose<CR>")
 vim.keymap.set("n", "qo", ":copen<CR>")
 vim.keymap.set("c", "<M-BS>", "<C-w>")
 
+vim.keymap.set("n", "<leader>yq", 'gg0vG$"+y:q!<CR>', { desc = "Copy all to clipboard and quit" })
+
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
