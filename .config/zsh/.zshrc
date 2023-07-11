@@ -16,20 +16,20 @@ eval "$(zoxide init bash)"
         https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
 source ~/Repos/znap/znap.zsh  # Start Znap
 
+# function zvm_config() {
+#   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# }
+#
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-fzf-history-search git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copyfile copybuffer dirhistory history jsontools macos)
-
+plugins=(zsh-fzf-history-search git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copyfile copybuffer dirhistory history jsontools macos vi-mode)
 source $ZSH/oh-my-zsh.sh
 
-
-function zvm_config() {
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-}
-
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey '^[^?' backward-kill-word
+VI_MODE_SET_CURSOR=true
 
 if [[ -f /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh ]]; then
     source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh

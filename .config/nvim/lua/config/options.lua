@@ -6,6 +6,7 @@ vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.autowrite = true -- Enable auto write
+vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 3 -- Hide * markup for bold and italic
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -73,7 +74,6 @@ vim.opt.title = true
 vim.opt.titlestring = [[%f %h%m%r%w %{v:progname} (%{tabpagenr()} of %{tabpagenr('$')})]]
 vim.o.foldlevel = 20
 vim.o.foldmethod = "expr"
-vim.opt.cursorline = false
 
 -- vim.cmd([[let g:gruvbox_material_background = 'medium']])
 -- vim.cmd([[let g:gruvbox_material_palette = 'material']])
