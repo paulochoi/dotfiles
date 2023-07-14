@@ -5,6 +5,7 @@ return {
       mode = function(str)
         return "\\<" .. str
       end,
+      multi_window = false,
     },
   },
 }
