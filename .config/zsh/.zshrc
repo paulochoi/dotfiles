@@ -8,6 +8,7 @@ source /
 
 export PATH=/Library/PostgreSQL/15/bin:$PATH
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 eval "$(zoxide init bash)"
 #
 # Download Znap, if it's not there yet.

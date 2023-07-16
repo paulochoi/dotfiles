@@ -26,7 +26,7 @@ return {
   },
   keys = {
     { "<leader>e", "<cmd>NvimTreeToggle<CR>", "Toggle nvimtree" },
-    { "<C-f>", ":lua grep_at_current_tree_node()<CR>", "Grep current folder" },
+    { "<C-s>", ":lua grep_at_current_tree_node()<CR>", "Grep current folder" },
     { "<C-p>", ":lua find_file_at_current_tree_node()<CR>", "find in current folder" },
   },
   opts = {

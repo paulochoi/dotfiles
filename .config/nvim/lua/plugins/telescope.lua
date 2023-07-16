@@ -1,6 +1,8 @@
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local grep_args = { "--hidden" }
+local Util = require("lazyvim.util")
+local utils = require("telescope.utils")
 
 require("telescope").load_extension("neoclip")
 vim.api.nvim_set_keymap(
@@ -12,10 +14,20 @@ vim.api.nvim_set_keymap(
 
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.2",
+  commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
+  cmd = "Telescope",
+  version = false, -- telescope did only one release, so use HEAD for now
   keys = function()
     return {
-      { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      -- { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>pf", Util.telescope("files"), desc = "Find Files" },
+      {
+        "<leader>pF",
+        function()
+          builtin.find_files({ cwd = utils.buffer_dir() })
+        end,
+        desc = "Find files in cwd",
+      },
       { "<leader>p:", "<cmd>Telescope command_history<cr>", desc = "Find Files" },
       { "<leader>pb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
       { "<leader>pd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
@@ -40,9 +52,9 @@ return {
       {
         "<leader>pS",
         function()
-          builtin.grep_string({ search = vim.fn.input("Grep > "), cwd = false })
+          builtin.grep_string({ search = vim.fn.input("Grep > "), cwd = utils.buffer_dir() })
         end,
-        desc = "Find Files",
+        desc = "Find Files (cwd)",
       },
     }
   end,
