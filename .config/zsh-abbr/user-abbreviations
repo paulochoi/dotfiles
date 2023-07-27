@@ -38,5 +38,11 @@ abbr "za"="zoxide add"
 abbr "ze"="zoxide edit"
 abbr "yges"="yarn generate-event-schema"
 abbr "yrt"="yarn run test"
+abbr "yrs"="yarn run script"
 abbr "yrd"="yarn run dev"
 abbr "ygm"="yarn run migration:generate"
+abbr "commands"="print -z -- $(runcommands)"
+abbr "history"="print -z -- $(history | cut -c 8- | sort -rn |  fzf-tmux)"
+abbr "cdf"="cd $(find . -type d -print | fzf-tmux)"
+
+
