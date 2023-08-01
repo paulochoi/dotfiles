@@ -15,6 +15,8 @@
 {pgup}>{s9}{x1}{-lalt}{bspc}{+lalt}
 {pgdn}>{s9}{x1}{-lctr}{a}{+lctr}
 <keypad>
+[pgup]>[bspc]
+[pgdn]>[bspc]
 <function1>
 [w]>[obrk]
 [hk3]>[hyph]
@@ -35,7 +37,6 @@
 [grav]>[eql]
 [bspc]>[spc]
 [spc]>[bspc]
-[pgdn]>[defs]
 {hk1}>{s5}{x1}{esc}{g}{g}{-lshf}{v}{g}{+lshf}{-lctr}{v}{+lctr}{-lshf}{i}{+lshf}{apos}{esc}{g}{g}{-lshf}{v}{g}{+lshf}{-lctr}{v}{+lctr}{-lshf}{4}{a}{+lshf}{apos}{comm}{esc}{-lshf}{g}{a}{+lshf}{bspc}{esc}{g}{g}{-lshf}{v}{g}{j}{+lshf}{lwin}
 {u}>{s9}{x1}{-lshf}{0}{+lshf}
 {i}>{s9}{x1}{-lshf}{cbrk}{+lshf}
@@ -45,5 +46,6 @@
 {q}>{s9}{x1}{-lshf}{comm}{+lshf}
 {p}>{s9}{x1}{-lshf}{perd}{+lshf}
 {bspc}>{s9}{x1}{-lwin}{bspc}{+lwin}
+{pgup}>{s9}{x1}{-lwin}{bspc}{+lwin}
 <function2>
 <function3>
