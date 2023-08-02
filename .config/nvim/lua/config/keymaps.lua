@@ -72,6 +72,7 @@ vim.keymap.set("n", "<leader>us", function()
   Util.toggle("spell")
 end, { desc = "Toggle Spelling" })
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
+vim.keymap.set("n", "<leader>fq", "<cmd>qa!<cr>", { desc = "Force Quit all" })
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 vim.keymap.set({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
