@@ -19,8 +19,8 @@ return {
   version = false, -- telescope did only one release, so use HEAD for now
   keys = function()
     return {
-      -- { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      { "<leader>pf", Util.telescope("files"), desc = "Find Files" },
+      { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      -- { "<leader>pf", Util.telescope("files"), desc = "Find Files" },
       {
         "<leader>pF",
         function()
