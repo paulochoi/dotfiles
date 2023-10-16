@@ -1,11 +1,10 @@
 -- LSP keymaps
 local format = function()
-  require("lazyvim.plugins.lsp.format").format({ force = true })
+  require("lazyvim.util").format({ force = true })
 end
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    autoformat = true,
     format_notify = false,
   },
   init = function()

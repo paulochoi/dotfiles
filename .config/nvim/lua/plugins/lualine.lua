@@ -5,10 +5,10 @@ return {
     local icons = require("lazyvim.config").icons
     local Util = require("lazyvim.util")
     local colors = {
-      [""] = Util.fg("Special"),
-      ["Normal"] = Util.fg("Special"),
-      ["Warning"] = Util.fg("DiagnosticError"),
-      ["InProgress"] = Util.fg("DiagnosticWarn"),
+      [""] = Util.ui.fg("Special"),
+      ["Normal"] = Util.ui.fg("Special"),
+      ["Warning"] = Util.ui.fg("DiagnosticError"),
+      ["InProgress"] = Util.ui.fg("DiagnosticWarn"),
     }
 
     return {
@@ -51,7 +51,7 @@ return {
           {
             function() return require("noice").api.status.command.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = Util.fg("Statement"),
+            color = Util.ui.fg("Statement"),
           },
           -- stylua: ignore
           {
@@ -79,15 +79,15 @@ return {
             cond = function()
               return package.loaded["noice"] and require("noice").api.status.mode.has()
             end,
-            color = Util.fg("Constant"),
+            color = Util.ui.fg("Constant"),
           },
           -- stylua: ignore
           {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-            color = Util.fg("Debug"),
+            color = Util.ui.fg("Debug"),
           },
-          { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = Util.fg("Special") },
+          { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = Util.ui.fg("Special") },
           {
             "diff",
             symbols = {
