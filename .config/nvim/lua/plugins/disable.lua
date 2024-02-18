@@ -7,4 +7,5 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "goolord/alpha-nvim", enabled = false },
+  { "folke/which-key", enabled = false },
 }

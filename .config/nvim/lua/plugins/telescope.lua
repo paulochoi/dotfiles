@@ -20,7 +20,6 @@ return {
   keys = function()
     return {
       { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      -- { "<leader>pf", Util.telescope("files"), desc = "Find Files" },
       {
         "<leader>pF",
         function()

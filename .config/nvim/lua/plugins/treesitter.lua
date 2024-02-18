@@ -1,12 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { "HiPhish/nvim-ts-rainbow2" },
+  dependencies = {},
   opts = function(_, opts)
-    opts.rainbow = {
-      enable = true,
-      query = "rainbow-parens",
-      strategy = require("ts-rainbow").strategy.global,
-    }
+    if type(opts.ensure_installed) == "table" then
+      vim.list_extend(opts.ensure_installed, { "typescript", "tsx" })
+    end
     opts.textobjects = {
       move = {
         enable = true,
