@@ -13,13 +13,13 @@ return {
         end,
         desc = "Run Last Test",
       },
-      {
-        "<leader>tL",
-        function()
-          require("neotest").run.run_last({ strategy = "dap" })
-        end,
-        desc = "Debug Last Test",
-      },
+      -- {
+      --   "<leader>tL",
+      --   function()
+      --     require("neotest").run.run_last({ strategy = "dap" })
+      --   end,
+      --   desc = "Debug Last Test",
+      -- },
       {
         "<leader>tw",
         "<cmd>lua require('neotest').run.run({ jestCommand = 'jest --watch ' })<cr>",
