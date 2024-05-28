@@ -4,7 +4,6 @@ local grep_args = { "--hidden" }
 local Util = require("lazyvim.util")
 local utils = require("telescope.utils")
 
-require("telescope").load_extension("neoclip")
 vim.api.nvim_set_keymap(
   "n",
   "<leader>pc",
@@ -16,10 +15,31 @@ return {
   "nvim-telescope/telescope.nvim",
   commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
   cmd = "Telescope",
+  dependencies = {
+    {
+      "danielfalk/smart-open.nvim",
+      branch = "0.2.x",
+      dependencies = {
+        "kkharji/sqlite.lua",
+        { "nvim-telescope/telescope-fzy-native.nvim" },
+      },
+    },
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    },
+  },
+  config = function(_, opts)
+    local telescope = require("telescope")
+    telescope.setup(opts)
+    telescope.load_extension("live_grep_args")
+    telescope.load_extension("neoclip")
+    telescope.load_extension("smart_open")
+  end,
   version = false, -- telescope did only one release, so use HEAD for now
   keys = function()
     return {
-      { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>pf", "<cmd>Telescope smart_open<cr>", desc = "Find Files" },
       {
         "<leader>pF",
         function()
@@ -48,19 +68,32 @@ return {
         end,
         desc = "Find Files",
       },
-      {
-        "<leader>pS",
-        function()
-          builtin.grep_string({ search = vim.fn.input("Grep > "), cwd = utils.buffer_dir() })
-        end,
-        desc = "Find Files (cwd)",
-      },
     }
   end,
   opts = {
     defaults = {
       prompt_prefix = " ",
       selection_caret = " ",
+      layout_config = {
+        height = 0.90,
+        width = 0.90,
+        preview_cutoff = 0,
+        horizontal = { preview_width = 0.60 },
+        vertical = { width = 0.55, height = 0.9, preview_cutoff = 0 },
+        prompt_position = "top",
+      },
+      path_display = { "smart" },
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--hidden",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--trim", -- add this value
+      },
       mappings = {
         i = {
           ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
@@ -86,6 +119,10 @@ return {
         action = function(emoji)
           vim.fn.setreg("*", emoji.value)
         end,
+      },
+      smart_open = {
+        cwd_only = true,
+        filename_first = false,
       },
     },
     pickers = {
@@ -119,6 +156,9 @@ return {
         additional_args = function()
           return grep_args
         end,
+      },
+      smart_open = {
+        previewer = false,
       },
       grep_string = {
         additional_args = function()
