@@ -1,4 +1,4 @@
-alias nv=/usr/local/bin/nvim
+alias nv=/opt/homebrew/bin/nvim
 eval "$(starship init zsh)"
 export NVM_DIR=/Users/paulo.choi/.config/nvm
 
@@ -24,7 +24,7 @@ source ~/Repos/znap/znap.zsh  # Start Znap
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-fzf-history-search git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copyfile copybuffer dirhistory history jsontools macos vi-mode)
+plugins=(zsh-fzf-history-search git sudo web-search copyfile copybuffer dirhistory history jsontools macos vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 bindkey -M viins 'jk' vi-cmd-mode
@@ -36,3 +36,6 @@ if [[ -f /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh ]]; then
 elif [[ -f /usr/local/share/zsh-abbr/zsh-abbr.zsh ]]; then
     source /usr/local/share/zsh-abbr/zsh-abbr.zsh
 fi
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

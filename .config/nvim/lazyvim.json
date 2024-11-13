@@ -1,15 +1,20 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.terraform",
+    "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.yaml",
-    "lazyvim.plugins.extras.linting.eslint"
+    "lazyvim.plugins.extras.linting.eslint",
+    "lazyvim.plugins.extras.util.dot"
   ],
   "news": {
-    "NEWS.md": "4964"
+    "NEWS.md": "7107"
   },
-  "version": 5
+  "version": 7
 }
+

@@ -13,7 +13,6 @@ gui:
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   language: "auto" # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
   theme:
-    lightTheme: false # For terminals with a light background
     activeBorderColor:
       - magenta
       - bold
@@ -46,7 +45,7 @@ git:
   paging:
     useConfig: false
     colorArg: always
-    pager: delta --side-by-side --syntax-theme Nord
+    # pager: delta --side-by-side --syntax-theme Nord
   merging:
     # only applicable to unix users
     manualCommit: false
