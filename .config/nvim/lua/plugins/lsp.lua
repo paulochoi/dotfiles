@@ -112,6 +112,15 @@ return {
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
+        eslint = function()
+          require("lazyvim.util").lsp.on_attach(function(client)
+            if client.name == "eslint" then
+              client.server_capabilities.documentFormattingProvider = true
+            elseif client.name == "tsserver" then
+              client.server_capabilities.documentFormattingProvider = false
+            end
+          end)
+        end,
         -- example to setup with typescript.nvim
         -- tsserver = function(_, opts)
         --   require("typescript").setup({ server = opts })
@@ -173,7 +182,7 @@ return {
     LazyVim.lsp.setup()
     LazyVim.lsp.on_dynamic_capability(require("lazyvim.plugins.lsp.keymaps").on_attach)
 
-    LazyVim.lsp.words.setup(opts.document_highlight)
+    -- LazyVim.lsp.words.setup(opts.document_highlight)
 
     -- diagnostics signs
     if vim.fn.has("nvim-0.10.0") == 0 then
