@@ -48,4 +48,5 @@ abbr "cdf"="cd $(find . -type d -print | fzf-tmux)"
 abbr "ydes"="yarn dev:env:start"
 abbr "ydst"="yarn dev:env:stop"
 abbr "yrtf"="yarn run test:file"
+abbr "oo"="cd ~/Documents/paulinho && nv :GoToFile"
 

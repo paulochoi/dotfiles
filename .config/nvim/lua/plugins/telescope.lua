@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap(
 
 return {
   "nvim-telescope/telescope.nvim",
-  commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
+  tag = "0.1.8",
   cmd = "Telescope",
   dependencies = {
     {
