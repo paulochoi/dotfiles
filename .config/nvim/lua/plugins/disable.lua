@@ -9,5 +9,5 @@ return {
   { "goolord/alpha-nvim", enabled = false },
   { "echasnovski/mini.animate", enabled = false },
   { "folke/which-key", enabled = false },
-  { "hrsh7th/nvim-cmp", enabled = true },
+  { "hrsh7th/nvim-cmp", enabled = false },
 }

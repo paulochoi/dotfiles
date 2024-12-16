@@ -139,17 +139,22 @@ return {
       find_files = {
         find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
         previewer = false,
-        shortern_path = true,
+        shorten_path = true,
         theme = "dropdown",
       },
       oldfiles = {
         previewer = false,
-        shortern_path = true,
+        shorten_path = true,
         theme = "dropdown",
+      },
+      lsp_references = {
+        previewer = true,
+        shorten_path = true,
+        path_display = { "shorten" },
       },
       git_files = {
         previewer = false,
-        shortern_path = true,
+        shorten_path = true,
         theme = "dropdown",
       },
       live_grep = {

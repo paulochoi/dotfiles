@@ -68,9 +68,6 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-vim.keymap.set("n", "<leader>us", function()
-  Util.toggle("spell")
-end, { desc = "Toggle Spelling" })
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.keymap.set("n", "<leader>fq", "<cmd>qa!<cr>", { desc = "Force Quit all" })
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -88,3 +85,5 @@ vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/
 -- strip date from note title and replace dashes with spaces
 -- must have cursor on title
 vim.keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
+vim.keymap.set("n", "<leader>ok", ":!mv '%:p' /Users/paulo.choi/Documents/paulinho/8\\ -\\ Zettelkasten<cr>:bd<cr>")
+vim.keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>")
