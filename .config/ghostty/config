@@ -1,0 +1,15 @@
+font-family = TX-02
+font-size = 16
+theme = GruvBoxDarkHard
+cursor-style = block
+adjust-cell-height = 30%
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+macos-titlebar-style = hidden
+window-padding-balance = true
+window-save-state = always
+window-colorspace = "display-p3"
+
+keybind = cmd+j=text:\x01J
+keybind = cmd+p=text::GoToFile\r

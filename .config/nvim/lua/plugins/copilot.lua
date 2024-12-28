@@ -9,17 +9,23 @@ return {
     keymap = {
       jump_prev = "[[",
       jump_next = "]]",
-      accept = "<C-l>",
     },
     suggestion = {
       enabled = true,
+      hide_during_completion = true,
       auto_trigger = true,
-      accept_line = false,
-      accept_word = false,
+      keymap = {
+        accept = "<M-l>",
+        accept_word = false,
+        accept_line = false,
+        next = "<M-]>",
+        prev = "<M-[>",
+        dismiss = "<C-]>",
+      },
     },
     panel = { enabled = true },
     filetypes = {
-      markdown = true,
+      markdown = false,
       help = true,
     },
   },
