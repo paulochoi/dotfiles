@@ -14,4 +14,3 @@ window-colorspace = "display-p3"
 keybind = cmd+j=text:\x01J
 keybind = cmd+p=text::GoToFile\r
 
-background-opacity = 0.85
