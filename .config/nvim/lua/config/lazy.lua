@@ -10,6 +10,18 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
+-- Define the autocommand group
+vim.api.nvim_create_augroup("TmuxRenameWindow", { clear = true })
+-- Define the autocommand
+vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost", "BufNewFile" }, {
+  group = "TmuxRenameWindow",
+  pattern = "*",
+  callback = function()
+    local filename = vim.fn.expand("%")
+    vim.fn.system("tmux rename-window " .. filename)
+  end,
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim

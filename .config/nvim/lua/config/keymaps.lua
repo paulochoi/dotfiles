@@ -87,3 +87,8 @@ vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/
 vim.keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
 vim.keymap.set("n", "<leader>ok", ":!mv '%:p' /Users/paulo.choi/Documents/paulinho/8\\ -\\ Zettelkasten<cr>:bd<cr>")
 vim.keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>")
+
+vim.keymap.set("n", "<leader>ac", ":Augment chat <cr>")
+vim.keymap.set("v", "<leader>ac", ":Augment chat <cr>")
+vim.keymap.set("n", "<leader>an", ":Augment chat-new <cr>")
+vim.keymap.set("n", "<leader>at", ":Augment chat-toggle <cr>")

@@ -39,7 +39,7 @@ return {
   version = false, -- telescope did only one release, so use HEAD for now
   keys = function()
     return {
-      { "<leader>pf", "<cmd>Telescope smart_open<cr>", desc = "Find Files" },
+      { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       {
         "<leader>pF",
         function()
@@ -122,7 +122,10 @@ return {
       },
       smart_open = {
         cwd_only = true,
-        filename_first = false,
+        filename_first = true,
+        previewer = false,
+        layout = "dropdown",
+        layout_strategy = "horizontal",
       },
     },
     pickers = {
@@ -164,6 +167,7 @@ return {
       },
       smart_open = {
         previewer = false,
+        theme = "dropdown",
       },
       grep_string = {
         additional_args = function()
@@ -171,6 +175,8 @@ return {
         end,
       },
       buffers = {
+        previewer = false,
+        theme = "dropdown",
         mappings = {
           i = { ["<c-d>"] = actions.delete_buffer },
         },
