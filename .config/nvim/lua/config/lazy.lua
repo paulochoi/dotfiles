@@ -17,8 +17,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost", "BufNewFile" }, {
   group = "TmuxRenameWindow",
   pattern = "*",
   callback = function()
-    local filename = vim.fn.expand("%")
-    vim.fn.system("tmux rename-window " .. filename)
+    local pane = vim.env.TMUX_PANE
+    if not pane or vim.g.no_tmux_rename then
+      return
+    end
+    vim.fn.system({ "tmux", "rename-window", "-t", pane, vim.fn.expand("%") })
   end,
 })
 
